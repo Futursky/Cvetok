@@ -1,0 +1,25 @@
+h1 Listing flowers
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th Price
+      th
+      th
+      th
+
+  tbody
+    - @flowers.each do |flower|
+      tr
+        td = flower.name
+        td = flower.description
+        td = flower.price
+        td = link_to 'Show', flower
+        td = link_to 'Edit', edit_flower_path(flower)
+        td = link_to 'Destroy', flower, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Flower', new_flower_path

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @flower.name
+p
+  strong Description:
+  = @flower.description
+p
+  strong Price:
+  = @flower.price
+
+= link_to 'Edit', edit_flower_path(@flower)
+'|
+= link_to 'Back', flowers_path
