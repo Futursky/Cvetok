@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 # My gem's 
 gem 'slim', '~> 2.0.2'
 gem 'slim-rails', '~> 2.1.4'
+gem 'bootstrap-sass'
+gem 'devise'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

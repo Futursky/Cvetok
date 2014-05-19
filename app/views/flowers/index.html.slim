@@ -1,3 +1,41 @@
+#carousel-example-generic.carousel.slide data-ride="carousel" 
+  /! Wrapper for slides
+  .carousel-inner
+    .item.active
+      .holder.col-sm-8
+        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
+      .col-sm-4
+        .carousel-caption
+          h2 Slide 1
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+          button.btn.btn-default type="button"  Default
+    .item
+      .holder.col-sm-8
+        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
+      .col-sm-4
+        .carousel-caption
+          h2 Slide 2
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+          button.btn.btn-default type="button"  Default
+    .item
+      .holder.col-sm-8
+        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
+      .col-sm-4
+        .carousel-caption
+          h2 Slide 3
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+          button.btn.btn-default type="button"  Default
+  .controllers.col-sm-8.col-xs-12
+    /! Controls
+    a.left.carousel-control data-slide="prev" href="#carousel-example-generic" 
+      span.glyphicon.glyphicon-chevron-left
+    a.right.carousel-control data-slide="next" href="#carousel-example-generic" 
+      span.glyphicon.glyphicon-chevron-right
+    /! Indicators
+    ol.carousel-indicators
+      li.active data-slide-to="0" data-target="#carousel-example-generic" 
+      li data-slide-to="1" data-target="#carousel-example-generic" 
+      li data-slide-to="2" data-target="#carousel-example-generic" 
 h1 Listing flowers
 
 table
@@ -16,10 +54,10 @@ table
         td = flower.name
         td = flower.description
         td = flower.price
-        td = link_to 'Show', flower
-        td = link_to 'Edit', edit_flower_path(flower)
-        td = link_to 'Destroy', flower, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', category_flower_path(@category, flower)
+        td = link_to 'Edit', edit_category_flower_path(@category, flower)
+        td = link_to 'Destroy', [@category, flower], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Flower', new_flower_path
+= link_to 'New Flower', new_category_flower_path(@category)

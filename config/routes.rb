@@ -1,11 +1,16 @@
 Cvetok::Application.routes.draw do
-  resources :flowers
+  devise_for :users
+  resources :categories do
+    resources :flowers
+  end
+
+  # resources :flowers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'flowers#index'
+   root 'categories#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

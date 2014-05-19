@@ -1,4 +1,4 @@
-= form_for @flower do |f|
+= form_for [@category, @flower] do |f|
   - if @flower.errors.any?
     #error_explanation
       h2 = "#{pluralize(@flower.errors.count, "error")} prohibited this flower from being saved:"

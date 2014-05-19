@@ -10,6 +10,6 @@ p
   strong Price:
   = @flower.price
 
-= link_to 'Edit', edit_flower_path(@flower)
+= link_to 'Edit', edit_category_flower_path(@category, @flower)
 '|
-= link_to 'Back', flowers_path
+= link_to 'Back', category_flowers_path(@category)
