@@ -1,6 +1,6 @@
 class FlowersController < ApplicationController
   before_action :set_flower, only: [:show, :edit, :update, :destroy]
-  before_filter :load_category, :authenticate_user!
+  before_filter :load_category
 
   # GET /flowers
   # GET /flowers.json
@@ -71,7 +71,7 @@ class FlowersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flower_params
-      params.require(:flower).permit(:name, :description, :price)
+      params.require(:flower).permit(:name, :description, :price, :category_id)
     end
 
     def load_category
