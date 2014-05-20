@@ -33,6 +33,7 @@ gem 'slim-rails', '~> 2.1.4'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'pg'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
