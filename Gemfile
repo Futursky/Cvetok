@@ -35,6 +35,7 @@ gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'pg'
 gem 'hirb'
+gem "paperclip"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

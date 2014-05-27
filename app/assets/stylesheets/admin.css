@@ -1,0 +1,11 @@
+p > img {
+  width: 80px;
+  height: 80px;
+}
+.images label {
+  cursor: pointer;
+}
+.button.has_many_remove, .button.remove {
+  display: block;
+  float: right;
+}

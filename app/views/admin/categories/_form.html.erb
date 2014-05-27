@@ -1,0 +1,15 @@
+<%= semantic_form_for [:admin, @category], :html => { :class => "filter_form", :multipart => true } do |f| %>
+
+    <%= f.inputs "Vendor Information" do %>
+        <%= f.input :name %>
+        <%= f.input :vendor_categories, :as => :check_boxes, :label => "Vendor Categories" %>
+    <% end %>
+
+   
+
+    <%= render :partial => "images/form", :locals => { :form => f, :resource => @category } %>
+    <%= f.actions %>
+
+    
+
+<% end %>

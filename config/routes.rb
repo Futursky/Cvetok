@@ -1,9 +1,12 @@
 Cvetok::Application.routes.draw do
+  post "images/create"
+  get "images/new"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  resources :categories do
-    resources :flowers
+  resources :categories, :only => [:index, :show] do
+    resources :flowers, :only => [:index, :show]
   end
 
   # resources :flowers

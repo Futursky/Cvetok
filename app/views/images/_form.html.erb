@@ -1,0 +1,19 @@
+<% unless resource.new_record? %>
+
+    <%= form.inputs "#{resource.class.name.titlecase} Documents (#{number_to_human_size Image::MAX_FILESIZE} Max Each)" do %>
+
+        <% 3.times { resource.images.build }; index = 1 %>
+        <%= form.semantic_fields_for :images do |image| %>
+            <% if image.object.new_record? %>
+                <%= image.input :photo, :as => :file, :label => "Attachment %s" % [index] %>
+            <% else %>
+                <li>
+                    <label>Attachment <%= index %> (<%= image.check_box :_destroy %> Delete?)</label>
+                    <%= link_to( File.basename( image.object.photo.path ), image.object.photo.url ) %>
+                </li>
+            <% end; index += 1 %>
+        <% end %>
+
+    <% end %>
+
+<% end %>
