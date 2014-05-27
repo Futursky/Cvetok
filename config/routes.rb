@@ -1,6 +1,4 @@
 Cvetok::Application.routes.draw do
-  post "images/create"
-  get "images/new"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

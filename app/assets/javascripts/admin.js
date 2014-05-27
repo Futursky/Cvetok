@@ -10,7 +10,7 @@ $(function() {
   $('.remove').click(function() {
     console.log(this);
     $(this).parent().prev().find('input[type=checkbox]').prop('checked', true);
-    $(this).closest('fieldset').hide();    
+    $(this).closest('fieldset').hide();
   })
 
   $(".has_many_add").click(function() {
@@ -18,7 +18,7 @@ $(function() {
       $('input[type=file]').last().hide();
       $("p > img").last().hide();
       $('.has_many_fields').last().find('input[type=file]').trigger('click');
-    }, 0);    
+    }, 0);
   });
 
   function readURL(input) {
