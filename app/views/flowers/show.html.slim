@@ -1,53 +1,62 @@
-#carousel-example-generic.carousel.slide data-ride="carousel" 
-  /! Wrapper for slides
-  .carousel-inner
-    .item.active
-      .holder.col-sm-8
-        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
-      .col-sm-4
-        .carousel-caption
-          h2 Slide 1
-          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          button.btn.btn-default type="button"  Default
-    .item
-      .holder.col-sm-8
-        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
-      .col-sm-4
-        .carousel-caption
-          h2 Slide 2
-          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          button.btn.btn-default type="button"  Default
-    .item
-      .holder.col-sm-8
-        img.img-responsive alt="..." src="http://placehold.it/1000x400" 
-      .col-sm-4
-        .carousel-caption
-          h2 Slide 3
-          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          button.btn.btn-default type="button"  Default
-  .controllers.col-sm-8.col-xs-12
-    /! Controls
-    a.left.carousel-control data-slide="prev" href="#carousel-example-generic" 
-      span.glyphicon.glyphicon-chevron-left
-    a.right.carousel-control data-slide="next" href="#carousel-example-generic" 
-      span.glyphicon.glyphicon-chevron-right
-    /! Indicators
-    ol.carousel-indicators
-      li.active data-slide-to="0" data-target="#carousel-example-generic" 
-      li data-slide-to="1" data-target="#carousel-example-generic" 
-      li data-slide-to="2" data-target="#carousel-example-generic" 
-p#notice = notice
 
-p
-  strong Name:
-  = @flower.name
-p
-  strong Description:
-  = @flower.description
-p
-  strong Price:
-  = @flower.price
+/ p#notice = notice
 
-//= link_to 'Edit', edit_category_flower_path(@category, @flower)
-'|
-= link_to 'Back', category_flowers_path(@category)
+/ p
+/   strong Name:
+/   = @flower.name
+/ p
+/   strong Description:
+/   = @flower.description
+/ p
+/   strong Price:
+/   = @flower.price
+
+/ //= link_to 'Edit', edit_category_flower_path(@category, @flower)
+/ '|
+/ = link_to 'Back', category_flowers_path(@category)
+
+#blue
+  .container
+    .row
+      h3 Single Project.
+.container.mt
+  .row
+    .col-lg-10.col-lg-offset-1.centered
+      #carousel-example-generic.carousel.slide data-ride="carousel"
+        /! Indicators
+        ol.carousel-indicators
+          - @flower.images.each_with_index do |image, index|
+            li data-slide-to="#{index}" data-target="#carousel-example-generic" class="#{index === 0 ? 'active' : ''}"
+        /! Wrapper for slides
+        .carousel-inner
+          - @flower.images.each_with_index do |image, index|
+            .item class="#{index === 0 ? 'active' : ''}"
+              img alt="" src="#{image_path(image.photo.url(:carousel))}"
+    .col-lg-5.col-lg-offset-1
+      .spacing
+      h4 YOUR PROJECT NAME
+      p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      h4 Our Proposal
+      p It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    .col-lg-4.col-lg-offset-1
+      .spacing
+      h4 Project Details
+      .hline
+      p
+        b Date:
+        | April 18, 2014
+      p
+        b Author:
+        | Marcel Newman
+      p
+        b Categories:
+        | Illustration, Web Design, Wordpress
+      p
+        b Tagged:
+        | Flat, UI, Development
+      p
+        b Client:
+        | Wonder Corp.
+      p
+        b Website:
+        a href="http://blacktie.co"  http://blacktie.co

@@ -1,18 +1,57 @@
-p#notice = notice
+/ p#notice = notice
 
-p
-  strong Name:
-  = @category.name
-p
-  strong Description:
-  = @category.description
+/ p
+/   strong Name:
+/   = @category.name
+/ p
+/   strong Description:
+/   = @category.description
 
-p
-  strong Flowers:
-  ul
-   - @flowers.each do |flower|
-    li= link_to flower.name, category_flower_path(@category, flower)
+/ p
+/   strong Flowers:
+/   ul
+/    - @flowers.each do |flower|
+/     li= link_to flower.name, category_flower_path(@category, flower)
 
-//= link_to 'Edit', edit_category_path(@category)
-'|
-= link_to 'Back', categories_path
+/ //= link_to 'Edit', edit_category_path(@category)
+/ '|
+/ = link_to 'Back', categories_path
+
+#blue
+  .container
+    .row
+      h3 Category
+.container.mtb
+  .row
+    .col-lg-6
+      img.img-responsive alt="" src="#{@category.images.blank? ? "" : image_path(@category.images.last.photo.url(:medium))} "
+    .col-lg-6
+      h4 = @category.name
+      p = @category.description
+      p It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      p Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+      p
+        br/
+        a.btn.btn-theme href="contact.html"  Contact Us
+.container.mtb
+  .row.centered
+    h3.mb FLOWERS
+    - @flowers.each do |flower|
+      .col-lg-3.col-md-3.col-sm-3
+        .he-wrap.tpl6
+          img alt="" src="#{flower.images.blank? ? "" : image_path(flower.images.last.photo.url(:medium))} "
+            .he-view
+              .bg.a0 data-animate="fadeIn" 
+                h3.a1 data-animate="fadeInDown"  Contact Me:
+                a.dmbutton.a2 data-animate="fadeInUp" href="#{category_flower_path(@category, flower)}"
+                  i.fa.fa-hand-o-up
+                / a.dmbutton.a2 data-animate="fadeInUp" href="#" 
+                /   i.fa.fa-envelope
+                / a.dmbutton.a2 data-animate="fadeInUp" href="#" 
+                /   i.fa.fa-twitter
+        h4 =flower.name
+        h5.ctitle = number_to_currency flower.price, unit: "₴", separator: ",", delimiter: "", format: "%n %u"
+        p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        .hline
+= render partial: "layouts/testimonials"
+= render partial: "layouts/our_clients"

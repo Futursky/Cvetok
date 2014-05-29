@@ -1,24 +1,30 @@
-h1 Listing categories
-
-table
-  thead
-    tr
-      th Name
-      th Description
-      th
-      th
-      th
-
-  tbody
-    - @categories.each do |category|
-      tr
-        td = category.images.blank? ? "" : image_tag(category.images.last.photo.url(:thumb))
-        td = category.name
-        td = category.description
-        td = link_to 'Show', category
-        //td = link_to 'Edit', edit_category_path(category)
-        //td = link_to 'Destroy', category, data: {:confirm => 'Are you sure?'}, :method => :delete
+= render partial: "layouts/headerwrap"
+= render partial: "layouts/service_logos"
+#portfoliowrap
+  h3 FLOWER CATEGORY
+  .portfolio-centered
+    .recentitems.portfolio
+      - @categories.each do |category|
+        tr
+          / td = category.images.blank? ? "" : image_tag(category.images.last.photo.url(:thumb))
+          / td = category.name
+          / td = link_to 'Show', category
+          //td = link_to 'Edit', edit_category_path(category)
+          //td = link_to 'Destroy', category, data: {:confirm => 'Are you sure?'}, :method => :delete
+          .portfolio-item.graphic-design
+            .he-wrap.tpl6
+              img alt="" src="#{category.images.blank? ? "" : image_path(category.images.last.photo.url(:medium))} " 
+                .he-view
+                  .bg.a0 data-animate="fadeIn"
+                    h3.a1 data-animate="fadeInDown" #{category.name}
+                    a.dmbutton.a2 data-animate="fadeInUp" data-rel="prettyPhoto" href="#{category.images.blank? ? "" : image_path(category.images.last.photo.url)}" 
+                      i.fa.fa-search
+                    a.dmbutton.a2 data-animate="fadeInUp" href="#{category_path(category)}" 
+                      i.fa.fa-link
 
 br
+= render partial: "layouts/middle_content"
+= render partial: "layouts/testimonials"
+= render partial: "layouts/our_clients"
 
 //= link_to 'New Category', new_category_path
