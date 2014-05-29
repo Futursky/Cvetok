@@ -1,20 +1,3 @@
-
-/ p#notice = notice
-
-/ p
-/   strong Name:
-/   = @flower.name
-/ p
-/   strong Description:
-/   = @flower.description
-/ p
-/   strong Price:
-/   = @flower.price
-
-/ //= link_to 'Edit', edit_category_flower_path(@category, @flower)
-/ '|
-/ = link_to 'Back', category_flowers_path(@category)
-
 #blue
   .container
     .row
@@ -60,3 +43,21 @@
       p
         b Website:
         a href="http://blacktie.co"  http://blacktie.co
+#portfoliowrap
+  .portfolio-centered
+    h3 Related Flowers.
+    .recentitems.portfolio
+      - p @category
+      - @category.flowers.take(10).each do |flower|
+        .portfolio-item.graphic-design
+          .he-wrap.tpl6
+            img alt="" src="#{flower.images.blank? ? "" : image_path(flower.images.last.photo.url(:medium))} "
+              .he-view
+                .bg.a0 data-animate="fadeIn"
+                  h3.a1 data-animate="fadeInDown" #{flower.name}
+                  a.dmbutton.a2 data-animate="fadeInUp" data-rel="prettyPhoto" href="#{flower.images.blank? ? "" : image_path(flower.images.last.photo.url)}"
+                    i.fa.fa-search
+                  a.dmbutton.a2 data-animate="fadeInUp" href="#{category_flower_path(@category, flower)}"
+                    i.fa.fa-link
+
+

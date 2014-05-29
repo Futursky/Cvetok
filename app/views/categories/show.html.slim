@@ -1,22 +1,3 @@
-/ p#notice = notice
-
-/ p
-/   strong Name:
-/   = @category.name
-/ p
-/   strong Description:
-/   = @category.description
-
-/ p
-/   strong Flowers:
-/   ul
-/    - @flowers.each do |flower|
-/     li= link_to flower.name, category_flower_path(@category, flower)
-
-/ //= link_to 'Edit', edit_category_path(@category)
-/ '|
-/ = link_to 'Back', categories_path
-
 #blue
   .container
     .row

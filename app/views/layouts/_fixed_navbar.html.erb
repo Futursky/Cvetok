@@ -7,11 +7,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">CVETOK.</a>
+        <a class="navbar-brand" href="<%= root_path %>">CVETOK.</a>
       </div>
       <div class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">HOME</a></li>
+          <li class="<%= is_active?(root_path) %>">
+            <%= link_to 'HOME', root_path %>
+          </li>
+          <li class="<%= is_active?(categories_path) %>">
+            <%= link_to 'CATEGORIES', categories_path %>
+          </li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
           <li class="dropdown">
