@@ -1,7 +1,4 @@
-// Portfolio
 (function($) {
-  "use strict";
-  console.log( "Portfolio" );
   var $container = $('.portfolio'),
   $items = $container.find('.portfolio-item'),
   portfolioLayout = 'fitRows';
