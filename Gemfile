@@ -36,6 +36,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'pg'
 gem 'hirb'
 gem "paperclip"
+gem "paperclip-dropbox", ">= 1.1.7"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
