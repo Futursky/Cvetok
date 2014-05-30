@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   belongs_to :imagable, :polymorphic => true
   delegate :path, :url, :content_type, :to => :photo
   has_attached_file :photo,
-                    :styles => { :medium => "600x450#>",
+                    :styles => { :medium => "600x450#",
                                  :thumb => "100x100>",
                                  :carousel => "1280x600#" },
                     :default_url => "/images/missing.png",
