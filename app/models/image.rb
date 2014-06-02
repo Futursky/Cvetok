@@ -8,7 +8,12 @@ class Image < ActiveRecord::Base
                                  :carousel => "1280x600#" },
                     :default_url => "/images/missing.png",
                     storage: :dropbox,
-                    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
+                    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+                    :dropbox_visibility => 'public',
+                    :dropbox_options => {
+                                          :path => proc { |style| "#{Rails.env}/#{style}/#{id}_#{photo.original_filename}"},
+                                          :unique_filename => true
+  }
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :photo, :less_than => MAX_FILESIZE
 
