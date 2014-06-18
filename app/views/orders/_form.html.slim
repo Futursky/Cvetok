@@ -1,0 +1,128 @@
+.container.mtb
+  .row
+    .col-lg-8
+      h4 Just Get In Touch!
+      .hline
+      p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      = form_for @order do |f|
+        - if @order.errors.any?
+          #error_explanation
+            h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+            ul
+              - @order.errors.full_messages.each do |message|
+                li = message
+
+        .form-group
+          = f.label :name
+          = f.text_field :name , class: 'form-control'
+        .form-group
+          = f.label :address
+          = f.text_area :address , class: 'form-control'
+        .form-group
+          = f.label :email
+          = f.text_field :email , class: 'form-control'
+        .form-group
+          = f.label :pay_type
+          = f.text_field :pay_type , class: 'form-control'
+        button.btn.btn-theme type="submit"  Submit
+    .col-lg-4
+      h4 Your Order
+      .hline
+      = render(@order)
+      p
+        | Some Ave, 987,
+        br/
+        | 23890, New York,
+        br/
+        | United States.
+        br/
+      p
+        | Email: hello@solidtheme.com
+        br/
+        | Tel: +34 8493-4893
+      p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+#map
+
+javascript:
+  var myOptions = {
+      zoom: 15,
+      center: new google.maps.LatLng(49.504251, 26.846595),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
+      styles: [
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#46bcec"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+  ]
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);

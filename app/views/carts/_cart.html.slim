@@ -1,0 +1,9 @@
+div.carts
+  - unless cart.line_items.empty?
+    = render(cart.line_items)
+    .total_line
+      span Total &nbsp;
+      = number_to_currency(cart.total_price)
+    .empty
+      = link_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-theme'
+      = link_to 'Checkout', new_order_path, method: :get, class: 'btn btn-theme'

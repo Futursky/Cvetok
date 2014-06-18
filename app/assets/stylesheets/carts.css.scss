@@ -1,0 +1,47 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.carts {
+  background-color: #384452;
+  color: white;
+  p {
+    color: white;
+  }
+  .item_price, .total_line {
+    text-align: right;
+  }
+  .cart_row{
+    padding: 5px 10px;
+  }
+  .total_line {
+    font-weight: bold;
+    border-top: 1px solid white;
+    margin: 5px;
+    padding: 5px;
+  }
+}
+.empty form, div.empty {
+  display: inline;
+}
+
+.dropdown {
+  p.empty{
+    color: white;
+    text-align: center;
+  }
+  // .empty .btn{
+  //   display: block;
+  // }
+  .item_price {
+    float: right;
+  }
+  .btn.btn-theme{
+    background-color: #00b3fe;
+    border-color: #00b3fe;
+    width: 46%;
+  }
+}
+ul.dropdown-menu {
+  min-width: 240px;
+  padding: 10px;
+}

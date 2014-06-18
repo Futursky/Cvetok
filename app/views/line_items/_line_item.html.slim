@@ -1,0 +1,17 @@
+- if line_item == @current_item
+  .cart_row#current_item
+    span
+      |#{line_item.flower.name}
+    span
+      |&nbsp;&times;
+      |#{line_item.quantity}
+    span.item_price= number_to_currency(line_item.total_price)
+- else
+  .cart_row
+    span
+      |#{line_item.flower.name}
+    span
+      |&nbsp;&times;
+      |#{line_item.quantity}
+    span.item_price= number_to_currency(line_item.total_price)
+

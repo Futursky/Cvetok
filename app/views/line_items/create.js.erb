@@ -1,0 +1,7 @@
+$('.carts').html("<%= escape_javascript render(@cart) %>");
+if ($('#cart .cart_row').length == 1) { $('#cart').show('blind', 1000); $('p.empty').hide(); }
+console.log($('#cart .cart_row').length);
+console.log($('#cart .cart_row').length == 1);
+$('#current_item').css({'background-color':'#00b3fe'}).animate({'background-color':'#384452'}, 3000);
+$('.dropdown').css({'background-color':'#00b3fe'}).animate({'background-color':'#384452'}, 2000);
+console.log("!");

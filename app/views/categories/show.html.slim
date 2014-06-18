@@ -31,6 +31,7 @@
                 / a.dmbutton.a2 data-animate="fadeInUp" href="#" 
                 /   i.fa.fa-twitter
         h4 =flower.name
+        = button_to 'Add to Cart', line_items_path(flower_id: flower), remote: true
         h5.ctitle = number_to_currency flower.price, unit: "₴", separator: ",", delimiter: "", format: "%n %u"
         p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         .hline

@@ -21,5 +21,6 @@ module Cvetok
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.precompile += ['admin.css', 'admin.js', 'portfolio.js']
+    config.app_generators.scaffold_controller = :scaffold_controller
   end
 end
