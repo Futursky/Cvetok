@@ -9,9 +9,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if notice %>
+    <div class="notice"><%= notice %> </div>
+  <% end %>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
   <%= render partial: "layouts/fixed_navbar"%>
   <%= yield %>
   <%= render partial: "layouts/footer"%>
   <%= javascript_include_tag 'portfolio' %>
+  <%= javascript_include_tag 'notice' %>
 </body>
 </html>

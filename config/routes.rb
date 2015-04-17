@@ -2,9 +2,13 @@ Cvetok::Application.routes.draw do
 
   resources :orders
 
-  resources :line_items
+  
 
-  resources :carts
+  resources :carts do
+    resources :line_items do
+      get 'destroy_item', on: :member
+    end
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,6 +16,7 @@ Cvetok::Application.routes.draw do
   resources :categories, :only => [:index, :show] do
     resources :flowers, :only => [:index, :show]
   end
+
 
   # resources :flowers
 
